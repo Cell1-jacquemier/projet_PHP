@@ -1,8 +1,9 @@
 <?php
+include("my-functions.php");
 $products = [
     "book" => [
         "name" => "book",
-        "price" => 1000,
+        "price" => 100,
         "weight" => 100,
         "discount" => 10,
         "picture_url" => "<img src=\""."https://www.mercator-ocean.eu/wp-content/uploads/2019/11/Mock-Up_BlueBookCopernicus_2.jpg"."\" alt=\"book\" width=\"20%\">",
@@ -16,18 +17,16 @@ $products = [
     ],
 ];
 foreach($products as $attribute=>$product){
-//    echo "<br>$attribute =><br>";
-//    print_r($product);
-//    echo "<br>----<br>";
-    foreach($product as $attrib=>$prod){
-        echo "<br>$attrib into $prod.<br>";
-
-    }
+    echo $product["name"];
+    echo formatPrice($product["price"]);
+    echo $product["weight"];
+    echo $product["discount"];
+    echo $product["picture_url"];
+//    foreach($product as $attrib=>$prod){
+//        echo "<br>$attrib into $prod .<br>";
+//
+//
+//    }
 }
 
-//echo "<br>----------------------<br>";
-//echo "$attribute";
-
-//echo "<img src=\""."https://www.mercator-ocean.eu/wp-content/uploads/2019/11/Mock-Up_BlueBookCopernicus_2.jpg"."\" alt=\"book\">";
-//echo "<img src=\""."https://lesinstantsvolesalavie.files.wordpress.com/2021/01/books-2020.jpeg"."\" alt=\"book\">";
 
