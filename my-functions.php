@@ -14,11 +14,11 @@ function formatPrice($centPrice):void
 
 function priceExcludingVAT($TTC_price, $TVA) :int{
     $HT = (100 * $TTC_price) / (100 + $TVA);
-    echo number_format($HT, 2, ',', ' ') . '€';
+//    echo number_format($HT, 2, ',', ' ') . '€' . "<br>";
         return $HT;
 }
-function discountedPrice($discount, $price){
+function discountedPrice($discount, $price) :float{
     $price_dis = ($price - $price * ($discount/100));
-    echo number_format($price_dis, 2, ',', ' ') . '€';
+//    echo number_format($price_dis, 2, ',', ' ') . '€' . "<br>";
     return $price_dis;
 }
