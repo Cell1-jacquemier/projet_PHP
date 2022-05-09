@@ -12,6 +12,13 @@ function formatPrice($centPrice):void
 // faite une fonction qui aura en parametre un prenom et un nom et qui affichera :
 // Salut Alex De Pembroke!
 
-Function priceExcludingVAT($TTC_price){
-
+function priceExcludingVAT($TTC_price, $TVA) :int{
+    $HT = (100 * $TTC_price) / (100 + $TVA);
+    echo number_format($HT, 2, ',', ' ') . '€';
+        return $HT;
+}
+function discountedPrice($discount, $price){
+    $price_dis = ($price - $price * ($discount/100));
+    echo number_format($price_dis, 2, ',', ' ') . '€';
+    return $price_dis;
 }
