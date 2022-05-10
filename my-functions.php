@@ -1,24 +1,18 @@
 <?php
+declare(strict_types=1);
 
-function formatPrice($centPrice):void
+function formatPrice(int $centPrice): string
 {
     $euroPrice = $centPrice / 100;
-    echo number_format($euroPrice, 2, ',', ' ') . '€';
+    return number_format($euroPrice, 2, ',', ' ') . '€';
 }
 
-//function sayMyName($lastName, $firstName) {
-//    return 'Salut ' . $firstName . ' ' . $lastName . '!';
-//}
-// faite une fonction qui aura en parametre un prenom et un nom et qui affichera :
-// Salut Alex De Pembroke!
-
-function priceExcludingVAT($TTC_price, $TVA) :int{
-    $HT = (100 * $TTC_price) / (100 + $TVA);
-//    echo number_format($HT, 2, ',', ' ') . '€' . "<br>";
-        return $HT;
+function priceExcludingVAT(int $TTC_price, float $TVA): float
+{
+   return (100 * $TTC_price) / (100 + $TVA);
 }
-function discountedPrice($discount, $price) :float{
-    $price_dis = ($price - $price * ($discount/100));
-//    echo number_format($price_dis, 2, ',', ' ') . '€' . "<br>";
-    return $price_dis;
+
+function discountedPrice(int|null $discount, int $price): float
+{
+    return ($price - $price * ($discount/100));
 }

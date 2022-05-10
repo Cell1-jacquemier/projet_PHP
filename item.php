@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
 <!-- navbar -->
 <nav class="navbar navbar-expand-md navbar-light" id="navbar">
     <div class="container-xxl">
@@ -63,36 +64,71 @@
         </div>
     </div>
 </nav>
-<?php
-$name = 'book';
-$price = "1000 dollars";
-$URL = "https://img.freepik.com/psd-gratuit/livre-maquette-couverture-rigide-trois-vues_125540-226.jpg";
-
-echo "Look! " ." this ". $name ." only cost " .$price;
-echo "<img src=\"".$URL."\" alt=\"book\">"; ?>
-
 <div class="container-xl accueil">
-    <div class="row g-0 bg-blue text-justify">
-        <div class="col">
-            <img src="images/Web Dev-Blog.png" class="img-fluid titi" alt="dessin ordinateur">
-        </div>
-        <div class="col">
-            <div>
-                <h1>WELCOME</h1>
-                <p>
-                    Vous souhaitez développer votre notoriété et valoriser en ligne votre entreprise,
-                    les produits et services que vous commercialisez afin d'engendrer de nouveaux contacts et
-                    prospects, générer des demandes de devis ?<br></p>
-                <p> Nous sommes source de propositions,
-                    vous accompagnons et créons votre site web de présentation d'activité (site internet
-                    institutionnel,présentation de catalogue produits et services)
-                    afin qu'il soit le reflet de l'image de votre entreprise et dispose des fonctionnalités
-                    dont vous avez fait état dans votre définition de besoin (cahier de charges).
-                </p>
+    <div class="row g-0 bg-blue  text-justify">
+<!--        <div class="col">-->
+<!--           <img src="images/Web Dev-Blog.png" class="img-fluid titi" alt="dessin ordinateur">-->-->
+<!--        </div>-->
+        <div class="col w-100 p-3 ">
+
+<?php
+include "my-functions.php";
+$products =[
+    [
+        "name" => "book",
+        "price" => 100,
+        "weight" => 100,
+        "discount" => 10,
+        "picture_url" => "https://www.mercator-ocean.eu/wp-content/uploads/2019/11/Mock-Up_BlueBookCopernicus_2.jpg",
+    ],
+    [
+        "name" => "books",
+        "price" => 1000,
+        "weight" => 1000,
+        "discount" => null,
+        "picture_url" => "https://lesinstantsvolesalavie.files.wordpress.com/2021/01/books-2020.jpeg",
+    ],
+];
+
+?>
+<?php foreach($products as $product){
+
+    ?>
+
+    <h3>product : <?= $product["name"]; ?> </h3>
+    <p>price : <?= formatPrice($product["price"]); ?></p>
+    <p>HT price : <?= formatPrice(priceExcludingVAT($product["price"], 5.5)); ?></p>
+    <p>weight : <?= $product["weight"] . " KG"; ?> </p>
+    <p>discount : <?= formatPrice(discountedPrice($product["discount"],$product["price"])); ?></p>
+    <img src= <?= $product["picture_url"] ?> width="20%" >
+    <?php
+}?>
             </div>
-        </div>
-    </div>
-</div>
+                    </div>
+                </div>
+            </div>
+<!--<div class="container-xl accueil">-->
+<!--    <div class="row g-0 bg-blue text-justify">-->
+<!--        <div class="col">-->
+<!--            <img src="images/Web Dev-Blog.png" class="img-fluid titi" alt="dessin ordinateur">-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div>-->
+<!--                <h1>WELCOME</h1>-->
+<!--                <p>-->
+<!--                    Vous souhaitez développer votre notoriété et valoriser en ligne votre entreprise,-->
+<!--                    les produits et services que vous commercialisez afin d'engendrer de nouveaux contacts et-->
+<!--                    prospects, générer des demandes de devis ?<br></p>-->
+<!--                <p> Nous sommes source de propositions,-->
+<!--                    vous accompagnons et créons votre site web de présentation d'activité (site internet-->
+<!--                    institutionnel,présentation de catalogue produits et services)-->
+<!--                    afin qu'il soit le reflet de l'image de votre entreprise et dispose des fonctionnalités-->
+<!--                    dont vous avez fait état dans votre définition de besoin (cahier de charges).-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="container-xl accueil">
     <div class="row flex-wrap justify-content-between custom-line text-center gneh ">
         <div class="col-3 bowl bg-primary">
